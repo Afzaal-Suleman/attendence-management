@@ -68,7 +68,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="block px-3 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-200 font-medium">
+                        <a href="/user/myAttendance" class="block px-3 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-200 font-medium">
                             My Attendance
                         </a>
                     </li>
@@ -108,6 +108,7 @@
             </div>
 
             <!-- Sample Stats Cards -->
+             @if(auth()->user()->role == 'admin')
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
                 <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
                     <p class="text-sm text-gray-600">Total Employees</p>
@@ -122,6 +123,7 @@
                     <p class="text-2xl font-bold text-orange-600 mt-1">14</p>
                 </div>
             </div>
+            @endif
         </div>
     </main>
 </div>
