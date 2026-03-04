@@ -90,7 +90,7 @@
                 </form>
                 
                 <!-- Check Out Button -->
-                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                {{-- <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div>
                             <p class="text-gray-900 font-medium text-lg">Check Out</p>
@@ -100,7 +100,7 @@
                             Check Out
                         </button>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

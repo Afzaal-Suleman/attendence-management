@@ -9,7 +9,7 @@
 <div class="grid grid-cols-3 gap-6">
 
     <div class="bg-white p-6 rounded shadow">
-        <h2 class="text-xl font-semibold">Total Users</h2>
+        <h2 class="text-xl font-semibold">Total Students</h2>
         <p class="text-3xl mt-3">25</p>
     </div>
 

@@ -13,18 +13,23 @@ class RoleMiddleware
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-     * @param  string  $role  // Role passed as parameter
-     * @return mixed
+     * @param  string  $roles  Pipe-separated roles, e.g., "HR|Teacher|User" or just "Admin"
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function handle(Request $request, Closure $next, $role): Response
+    public function handle(Request $request, Closure $next, $roles): Response
     {
         // Check if user is logged in
         if (!auth()->check()) {
             return redirect('/login');
         }
 
-        // Check if user's role matches the required role
-        if (auth()->user()->role !== $role) {
+        $user = auth()->user();
+
+        // Convert pipe-separated string to array
+        $allowedRoles = explode('|', $roles);
+
+        // Check if user's role is in allowed roles
+        if (!in_array($user->role, $allowedRoles)) {
             abort(403, 'Unauthorized Access');
         }
 
