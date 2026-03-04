@@ -35,7 +35,7 @@
         <!-- Navigation Links -->
         <nav class="space-y-6">
             <!-- Admin Section -->
-            @if(auth()->user()->role == 'admin')
+            @if(auth()->user()->role == 'Admin')
             <div>
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 px-3">Admin Panel</p>
                 <ul class="space-y-1">
@@ -45,20 +45,25 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="block px-3 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-200 font-medium">
-                            Manage Users
+                        <a href="/admin/leaves" class="block px-3 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-200 font-medium">
+                            Manage Leaves
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="block px-3 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-200 font-medium">
+                        <a href="/admin/attendance/today" class="block px-3 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-200 font-medium">
                             Attendance Reports
+                        </a>
+                    </li>
+                     <li>
+                        <a href="/admin/users" class="block px-3 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-200 font-medium">
+                            Manage Users
                         </a>
                     </li>
                 </ul>
             </div>
             @endif
             <!-- User Section -->
-            @if(auth()->user()->role == 'user')
+            @if(auth()->user()->role != 'Admin')
             <div>
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 px-3">User Panel</p>
                 <ul class="space-y-1">
@@ -70,6 +75,11 @@
                     <li>
                         <a href="/user/myAttendance" class="block px-3 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-200 font-medium">
                             My Attendance
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/user/leaves" class="block px-3 py-2.5 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-200 font-medium">
+                            Leaves
                         </a>
                     </li>
                 </ul>
@@ -103,7 +113,7 @@
             </div>
 
             <!-- Sample Stats Cards -->
-             @if(auth()->user()->role == 'admin')
+             @if(auth()->user()->role == 'a')
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
                 <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
                     <p class="text-sm text-gray-600">Total Employees</p>

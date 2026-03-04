@@ -25,7 +25,7 @@
                 <nav class="flex items-center justify-end gap-4">
                     @auth
                         <a
-                            href="{{ auth()->user()->role === 'admin' ? url('admin/dashboard') : url('user/dashboard') }}"
+                            href="{{ auth()->user()->role === 'Admin' ? url('admin/dashboard') : url('user/dashboard') }}"
                             class="inline-block px-5 py-1.5 text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
                             Dashboard
@@ -53,12 +53,12 @@
            <main class="flex max-w-[335px] w-full flex-col lg:max-w-4xl lg:flex-col">
             <h1>Attendance Management</h1>
 
-            @if(auth()->check() && auth()->user()->role === 'user')
+            @if(auth()->check() && auth()->user()->role !== 'Admin')
                 <p class="mt-4 text-gray-700">
                     Welcome! Here you can mark your attendance, check your daily schedule,
                     and track your work hours easily.
                 </p>
-            @elseif(auth()->check() && auth()->user()->role === 'admin')
+            @elseif(auth()->check() && auth()->user()->role === 'Admin')
                 <p class="mt-4 text-gray-700">
                     Admin Dashboard: Manage employee attendance, generate reports,
                     and monitor overall team productivity efficiently.

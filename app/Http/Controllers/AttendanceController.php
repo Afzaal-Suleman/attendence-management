@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Attendance;
+use App\Services\WhatsAppService;
 
 class AttendanceController extends Controller
 {
@@ -19,6 +20,7 @@ class AttendanceController extends Controller
 
     return view('user.dashboard', compact('todayAttendance', 'attendances'));
     }
+
     public function mark(Request $request)
     {
         $user = $request->user();
@@ -35,17 +37,17 @@ class AttendanceController extends Controller
             'status' => 'present',
         ]);
 
-        // placeholder WhatsApp notification
-        // app()->make('App\Services\NotificationService')->sendWhatsApp($user, "Attendance marked for $date");
+        $whatsapp = new WhatsAppService();
+        $user = auth()->user();
+        $whatsapp->send($user->phone, "Hi {$user->name}, your attendance has been marked for today.");
+
 
         return back()->with('success', 'Attendance marked.');
     }
     public function myAttendance(Request $request)
     {
         $userId = $request->user()->id;
-        $attendances = Attendance::where('user_id', $userId)
-                        ->orderByDesc('date')
-                        ->get();
+        $attendances = Attendance::where('user_id', $userId)->orderByDesc('date')->get();
 
         return view('user.myAttendance', compact('attendances'));
     }

@@ -133,7 +133,7 @@
 
         <!-- Footer -->
         <div class="px-4 py-2 bg-gray-50 border-t flex-shrink-0 text-xs text-gray-500 flex justify-between">
-            <span>← Scroll vertically →</span>
+            <span>Calendar</span>
             <span>{{ $totalRows }}w • {{ $daysInMonth }}d</span>
         </div>
     </div>
