@@ -13,9 +13,12 @@ class AttendanceController extends Controller
     $todayAttendance = \App\Models\Attendance::where('user_id', $user->id)
                         ->where('date', now()->toDateString())
                         ->first();
+     $attendances = Attendance::where('user_id', $user->id)
+                        ->orderByDesc('date')
+                        ->get();
 
-    return view('user.dashboard', compact('todayAttendance'));
-}
+    return view('user.dashboard', compact('todayAttendance', 'attendances'));
+    }
     public function mark(Request $request)
     {
         $user = $request->user();
@@ -36,5 +39,20 @@ class AttendanceController extends Controller
         // app()->make('App\Services\NotificationService')->sendWhatsApp($user, "Attendance marked for $date");
 
         return back()->with('success', 'Attendance marked.');
+    }
+    public function myAttendance(Request $request)
+    {
+        $userId = $request->user()->id;
+        $attendances = Attendance::where('user_id', $userId)
+                        ->orderByDesc('date')
+                        ->get();
+
+        return view('user.myAttendance', compact('attendances'));
+    }
+
+    public function allAttendance()
+    {
+        $attendances = Attendance::all();
+        return view('user.myAttendance', compact('attendances'));
     }
 }

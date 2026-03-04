@@ -25,7 +25,7 @@
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden"></div>
 
     <!-- Sidebar -->
-    <aside id="sidebar" class="fixed lg:static w-64 bg-gray-900 text-white p-5 h-screen overflow-y-auto z-40 -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-xl">
+    <aside id="sidebar" class="fixed w-64 bg-gray-900 text-white p-5 h-screen overflow-y-auto z-40 -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-xl">
         <!-- Logo Section -->
         <div class="mb-8 pb-4 border-b border-gray-700">
             <h2 class="text-xl font-bold text-white">Attendance System</h2>
@@ -95,12 +95,7 @@
 
     <!-- Main Content -->
     <main class="flex-1 p-4 lg:p-8 bg-gray-50 min-h-screen">
-        <div class="max-w-7xl mx-auto">
-            <!-- Header with welcome message -->
-            <div class="mb-6 lg:mb-8">
-                <h1 class="text-2xl lg:text-3xl font-bold text-gray-800">Welcome Back!</h1>
-                <p class="text-gray-600 mt-1">Here's what's happening with your attendance today.</p>
-            </div>
+        <div class="max-w-7xl lg:ms-64 mx-auto">       
             
             <!-- Content Area -->
             <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6 border border-gray-200">

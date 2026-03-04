@@ -33,4 +33,5 @@ Route::post('/logout',[AuthController::class,'logout']);
         });
         Route::post('attendances/mark', [AttendanceController::class, 'mark'])->name('attendances.mark');
         Route::get('user/dashboard', [AttendanceController::class, 'index'])->name('user.dashboard');
+        Route::get('user/myAttendance', [AttendanceController::class, 'myAttendance'])->name('user.myAttendance');
     });
